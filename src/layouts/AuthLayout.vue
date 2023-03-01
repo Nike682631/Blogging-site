@@ -26,7 +26,7 @@
 }
 
 .bg-auth {
-  background-color: #F0F4F3;
+  background-color: #262321;
   background-image: url("src/assets/bg-auth.png");
   background-size: cover;
   background-repeat: no-repeat;

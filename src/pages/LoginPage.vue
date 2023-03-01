@@ -15,13 +15,6 @@
       </div>
 
       <div class="col-12 col-sm-7">
-        <div class="row q-ml-sm q-mt-sm sm-and-up-hide">
-          <div class="col-12 fredoka text-subtitle1">
-            <router-link class="text-primary" style="text-decoration: none" to="/">
-              System Name
-            </router-link>
-          </div>
-        </div>
         <div class="row q-pa-sm-sm q-pa-md">
           <div class="col-12">
             <q-card-section>
