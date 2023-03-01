@@ -1,7 +1,8 @@
 <template>
   <q-page class="row items-center justify-evenly">
     <div class="row">
-      <div class="col-12 col-lg-4 q-pa-md">
+      abcde
+      <!-- <div class="col-12 col-lg-4 q-pa-md">
         <div class="text-h4 text-bold">Blogs</div>
         <div class="text-grey-7">Please login with us</div>
         <div class="column">
@@ -26,7 +27,7 @@
             Login
           </q-btn>
         </div>
-      </div>
+      </div> -->
     </div>
   </q-page>
 </template>

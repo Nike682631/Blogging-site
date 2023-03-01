@@ -2,33 +2,20 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
         <q-toolbar-title>
           Quasar App
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-btn flat @click="logout">Logout</q-btn>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
-        <q-item-label
-          header
-        >
-           Pages
+        <q-item-label header>
+          Pages
         </q-item-label>
 
         <!-- <EssentialLink
@@ -47,6 +34,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import signout from 'src/firebase/fbsignOut'
+import { useRouter } from 'vue-router'
 // import EssentialLink from 'components/EssentialLink.vue';
 
 // const linksList = [
@@ -101,13 +90,20 @@ export default defineComponent({
     // EssentialLink
   },
 
-  setup () {
+  setup() {
     const leftDrawerOpen = ref(false)
+    const router = useRouter()
 
+    const logout = () => {
+      signout().then(() => {
+        router.push('/login')
+      })
+    }
     return {
       // essentialLinks: linksList,
       leftDrawerOpen,
-      toggleLeftDrawer () {
+      logout,
+      toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value
       }
     }
