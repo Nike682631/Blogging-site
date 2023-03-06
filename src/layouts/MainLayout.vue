@@ -5,7 +5,7 @@
         <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
         <q-toolbar-title>
-          Quasar App
+          Dreamonkey Blogs
         </q-toolbar-title>
 
         <q-btn flat @click="logout">Logout</q-btn>
@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, onMounted } from 'vue';
 import signout from 'src/firebase/fbsignOut'
 import { useRouter } from 'vue-router'
 // import EssentialLink from 'components/EssentialLink.vue';
@@ -99,13 +99,17 @@ export default defineComponent({
         router.push('/login')
       })
     }
+    const toggleLeftDrawer = () => {
+      leftDrawerOpen.value = !leftDrawerOpen.value
+    }
+    onMounted(() => {
+      toggleLeftDrawer();
+    })
     return {
       // essentialLinks: linksList,
       leftDrawerOpen,
       logout,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
+      toggleLeftDrawer
     }
   }
 });

@@ -1,20 +1,19 @@
-export interface Todo {
-  id: number;
-  content: string;
-}
-
-export interface Meta {
-  totalCount: number;
-}
-
-export interface userRegisterModel{
+export interface UserRegisterModel{
   last_name: string,
   first_name: string,
   email: string,
   password: string
 }
 
-export interface userLoginModel{
+export interface UserLoginModel{
   email: string,
   password: string
+}
+
+export interface BlogRegisterModel{
+  title: '',
+  description: '',
+  author: '',
+  tags: [],
+  comments: []
 }

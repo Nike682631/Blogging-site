@@ -1,7 +1,4 @@
 <template>
-  <!-- Design template by Joabson Arley
-   https://github.com/Joabsonlg/quasar-template-->
-
   <q-card class="q-ma-xl">
     <div class="row">
       <div class="col-0 col-sm-5 bg-primary rounded-left-borders xs-hide">
@@ -53,9 +50,9 @@
 import { ref, reactive } from 'vue'
 import login from 'src/firebase/fbaseLogin'
 import { useRouter } from 'vue-router'
-import { userLoginModel } from 'src/components/models'
+import { UserLoginModel } from 'src/components/models'
 
-const user = reactive<userLoginModel>({
+const user = reactive<UserLoginModel>({
   email: '',
   password: ''
 })
