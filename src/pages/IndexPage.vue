@@ -1,25 +1,30 @@
 <template>
-  <q-page class="row items-center justify-evenly">
+  <q-page class="row items-start justify-center">
     <div class="column">
       <div class="row justify-end">
-        <q-btn class="full-width fredoka" href="/app/createblog" color="primary" label="Create" rounded
+        <q-btn size="12px" class="fredoka q-ma-sm" href="/app/createblog" color="primary" label="Create Blog" rounded
           type="button"></q-btn>
       </div>
       <div>
-        <BlogCard />
+        <BlogCard v-for="blog in blogs" :key="blog.id" v-bind="blog.data()" :id="blog.id" :color="getRandomColor()"/>
       </div>
     </div>
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { getBlogs } from '../firebase/fbaseBlogPosts'
 import BlogCard from '../components/BlogCard.vue'
 
+const blogs = ref<any>([])
+const colors = ['red', 'green', 'blue', 'purple', 'orange', 'pink', 'teal'];
+function getRandomColor() {
+  return colors[Math.floor(Math.random() * colors.length)]
+}
 onMounted(async () => {
-  const blogs = await getBlogs();
-  console.log(blogs)
+  const response = await getBlogs();
+  blogs.value = response
 })
 
 </script>

@@ -10,7 +10,7 @@ export interface UserLoginModel{
   password: string
 }
 
-export interface BlogRegisterModel{
+export interface BlogModel{
   title: '',
   description: '',
   author: '',

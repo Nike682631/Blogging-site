@@ -17,6 +17,12 @@ const routes: RouteRecordRaw[] = [
     children: [
      { path: '', component: () => import('pages/IndexPage.vue') },
      { path: 'createblog', component: () => import('pages/CreateBlog.vue') },
+     {
+      path: 'blog/:id',
+      name: 'Blog',
+      component: () => import('pages/BlogDetails.vue'),
+      props: true,
+    },
     ],
     meta: { auth: true }
    },

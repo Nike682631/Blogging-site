@@ -103,7 +103,7 @@ export default defineComponent({
       leftDrawerOpen.value = !leftDrawerOpen.value
     }
     onMounted(() => {
-      toggleLeftDrawer();
+      leftDrawerOpen.value = false
     })
     return {
       // essentialLinks: linksList,

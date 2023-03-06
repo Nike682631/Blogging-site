@@ -5,7 +5,7 @@
         <q-input filled v-model="blog.title" label="Blog title *" lazy-rules
           :rules="[val => val && val.length > 0 || 'Please type something']" />
 
-        <q-input filled v-model="blog.description" type="textarea" class="blog-description-field" label="Blog content *"
+        <q-input filled v-model="blog.description" type="textarea" label="Blog content *"
           lazy-rules :rules="[
             val => val !== null && val !== '' || 'Please add the content',
           ]" />
@@ -21,11 +21,11 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { BlogRegisterModel } from 'src/components/models'
+import { BlogModel } from 'src/components/models'
 import { useRouter } from 'vue-router'
 import createBlog from '../firebase/fbaseBlogPosts'
 
-const blog = reactive<BlogRegisterModel>({
+const blog = reactive<BlogModel>({
   title: '',
   description: '',
   author: '',
@@ -47,7 +47,3 @@ const onSubmit = async () => {
 const onReset = () => { return; }
 
 </script>
-
-<style>
-.blog-description-field {}
-</style>
