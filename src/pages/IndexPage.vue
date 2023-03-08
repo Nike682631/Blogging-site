@@ -15,6 +15,7 @@
 import { onMounted, ref } from 'vue';
 import { getBlogs } from '../firebase/fbaseBlogPosts'
 import BlogCard from '../components/BlogCard.vue'
+import { QueryDocumentSnapshot, DocumentData } from 'firebase/firestore';
 
 const blogs = ref<any>([])
 const colors = ['red', 'green', 'blue', 'purple', 'orange', 'pink', 'teal'];

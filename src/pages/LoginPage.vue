@@ -22,7 +22,7 @@
                 </div>
               </div>
 
-              <q-form ref="form" class="q-gutter-md" @submit="submit">
+              <q-form class="q-gutter-md" @submit="submit">
                 <q-input v-model="user.email" label="Email" name="Email" />
 
                 <q-input v-model="user.password" label="Password" name="password" type="password" />
@@ -47,25 +47,23 @@
 </template>
  
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, Ref } from 'vue'
 import login from 'src/firebase/fbaseLogin'
 import { useRouter } from 'vue-router'
 import { UserLoginModel } from 'src/components/models'
+import { QForm } from 'quasar';
 
 const user = reactive<UserLoginModel>({
   email: '',
   password: ''
 })
 
-const form = ref<any>(null)
 const router = useRouter()
 
 const submit = async () => {
-  if (form.value.validate()) {
     try {
       await login(user)
       router.push('/app')
     } catch (err) { /* empty */ }
   }
-}
 </script>

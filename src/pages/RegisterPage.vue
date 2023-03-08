@@ -22,7 +22,7 @@
                 </div>
               </div>
 
-              <q-form ref="form" class="q-gutter-md" @submit="submit">
+              <q-form class="q-gutter-md" @submit="submit">
                 <q-input v-model="user.first_name" label="First Name" name="First Name" />
                 <q-input v-model="user.last_name" label="Last Name" name="Last Name" />
                 <q-input v-model="user.email" label="Email" name="Email" />
@@ -60,15 +60,12 @@ const user = reactive<UserRegisterModel>({
   password: ''
 })
 
-const form = ref<any>(null)
 const router = useRouter()
 
 const submit = async () => {
-  if (form.value?.validate()) {
     try {
       await register(user)
       router.push('/app')
     } catch (err) { /* empty */ }
   }
-}
 </script>
