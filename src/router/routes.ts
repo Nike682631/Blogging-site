@@ -23,6 +23,12 @@ const routes: RouteRecordRaw[] = [
       component: () => import('pages/BlogDetails.vue'),
       props: true,
     },
+     {
+      path: 'blog/edit/:id',
+      name: 'BlogEdit',
+      component: () => import('pages/BlogEdit.vue'),
+      props: true,
+    },
     ],
     meta: { auth: true }
    },

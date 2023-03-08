@@ -18,10 +18,10 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, Ref, ref } from 'vue'
-import { BlogModel } from 'src/components/models'
+import { reactive } from 'vue'
+import { BlogModel, RouteProps } from 'src/components/models'
 import { useRouter } from 'vue-router'
-import createBlog from '../firebase/fbaseBlogPosts'
+import { editBlog } from '../firebase/fbaseBlogPosts'
 import { QForm } from 'quasar';
 import { getAuth } from "firebase/auth";
 
@@ -38,12 +38,15 @@ const requiredRule = (val: string | undefined) => val && val.length > 0 || 'Plea
 
 const auth = getAuth();
 const { uid }: { uid?: string } = auth.currentUser || {};
+const route = router.currentRoute.value;
+const blogId = Array.isArray(route.params.id) ? route.params.id[0] : route.params.id;
 
 const onSubmit = async () => {
   try {
-    if(uid){
+    if (uid) {
       blog.author = uid;
-      const response = await createBlog(blog);
+      const response = await editBlog(blog, uid, blogId);
+      console.log(response)
       router.push('/app');
     }
   } catch (err) {

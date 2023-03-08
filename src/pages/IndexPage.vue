@@ -2,8 +2,7 @@
   <q-page class="row items-start justify-center">
     <div class="column">
       <div class="row justify-end">
-        <q-btn size="12px" class="fredoka q-ma-sm" href="/app/createblog" color="primary" label="Create Blog" rounded
-          type="button"></q-btn>
+        <q-btn size="12px" class="fredoka q-ma-sm" to="/app/createblog" color="primary" label="Create Blog" rounded />
       </div>
       <div>
         <BlogCard v-for="blog in blogs" :key="blog.id" v-bind="blog.data()" :id="blog.id" :color="getRandomColor()"/>

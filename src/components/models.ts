@@ -11,9 +11,13 @@ export interface UserLoginModel{
 }
 
 export interface BlogModel{
-  title: '',
-  description: '',
-  author: '',
-  tags: [],
-  comments: []
+  title: string,
+  description:string,
+  author: string,
+  tags: Array<String>,
+  comments: Array<String>
+}
+
+export interface RouteProps {
+  id: string;
 }

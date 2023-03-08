@@ -57,7 +57,7 @@ export default defineComponent({
     })
     const router = useRouter()
 
-    function goToBlog(id: any) {
+    function goToBlog(id: string) {
       router.push({ name: 'Blog', params: { id } })
     }
     return {

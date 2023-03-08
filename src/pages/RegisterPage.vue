@@ -68,7 +68,7 @@ const submit = async () => {
     try {
       await register(user)
       router.push('/app')
-    } catch (err) { }
+    } catch (err) { /* empty */ }
   }
 }
 </script>
